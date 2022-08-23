@@ -54,26 +54,43 @@
             padding: 0.75rem 1rem;
         }
 
+        h2 {
+            margin: 0 auto;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end);
+
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
         ul {
             padding-top: 10px;
             padding-bottom: 10px;
-            /* margin: 0 auto; */
-            /* white-space: nowrap; */
-            /* overflow: hidden; */
-            animation: maneesh 0.5s steps(40, end);
+            animation: maneesh 1.5s steps(40, end);
         }
 
         @keyframes maneesh {
             from {
                 width: 0
             }
+
             to {
                 width: 100%;
-                white-space:wrap;
-                overflow:visible;
-                word-wrap:break-word;
+                white-space: wrap;
+                overflow: visible;
+                word-wrap: break-word;
             }
         }
+
         ul>li {
             color: white;
             letter-spacing: 1px;
