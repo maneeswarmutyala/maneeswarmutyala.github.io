@@ -57,8 +57,23 @@
         ul {
             padding-top: 10px;
             padding-bottom: 10px;
+            /* margin: 0 auto; */
+            /* white-space: nowrap; */
+            /* overflow: hidden; */
+            animation: maneesh 0.5s steps(40, end);
         }
 
+        @keyframes maneesh {
+            from {
+                width: 0
+            }
+            to {
+                width: 100%;
+                white-space:wrap;
+                overflow:visible;
+                word-wrap:break-word;
+            }
+        }
         ul>li {
             color: white;
             letter-spacing: 1px;
@@ -109,6 +124,8 @@
                         <li> Developed the <strong>Landing Page for VSAT event</strong>. Page traffic, CTR improved and
                             new customers
                             were added. </li>
+                        <li> Refactored and Structured the code base for Micro Front end.
+                        </li>
                         <li>
                             Developed <strong>Free Demo Slots Booking</strong> for lead generation through marketing.
                         </li>
@@ -118,8 +135,7 @@
                     <ul>
                         <li> Got Trained in Google Tag Manger, Moengage Dashboard and Datadog Monitoring.
                         </li>
-                        <li> Refactored and Structured the code base for Micro Front end.
-                        </li>
+                        <li>Integrated Multiple Events(GA,MoEngage etc) in multiple projects.</li>
                         <li> Implemented Unit Testing using Jest.
                         </li>
                         <li> Developed <strong>Vedantu Improvement Promise (VIP)</strong> landing page for slots booking
