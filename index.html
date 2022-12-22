@@ -126,10 +126,18 @@
         #connect li {
             list-style: none;
         }
+        canvas {
+	background: hsl(0 0% 5%);
+	height: 100vh;
+	position: fixed;
+	width: 100vw;
+	inset: 0;
+}
     </style>
 </head>
 
 <body>
+    <canvas id="rain"></canvas>
     <header>
         <nav>
             <a href="#experience">Experience</a>
@@ -337,7 +345,194 @@
             <h2>Hire Me</h2>
         </section>
     </main>
+    <script>
+        "use strict";
 
+var _gsap = _interopRequireDefault(require("https://cdn.skypack.dev/gsap@3.11.0"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+console.clear();
+var CANVAS = document.querySelector('#rain');
+var DEFAULT_OPTIONS = {
+  size: function size() {
+    return window.innerWidth * 0.025;
+  },
+  family: 'JetBrains Mono, monospace',
+  fps: 25,
+  hue: 122,
+  limiter: 0.25,
+  glyphs: '01'
+  // glyphs: '01'
+};
+
+var DigitalRain = function DigitalRain(el, options) {
+  if (el.tagName !== 'CANVAS') return console.error('Need a canvas element');
+  var self = this;
+  self.__ratio = window.devicePixelRatio || 1;
+  self.canvas = el;
+  self.options = options;
+  self.size = options.size;
+  self.glyphs = self.options.glyphs.split('');
+  self.context = el.getContext('2d');
+  self.setSize();
+  self.setTracker();
+  self.init();
+  return self;
+};
+
+// Sending back a column Object that represents the state of a column
+DigitalRain.prototype.setColumn = function () {
+  var column = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var self = this;
+  var glyphs = self.glyphs;
+  // Set a destination and record len && lastLen
+  var len = _gsap["default"].utils.random(6, self.rows, 1);
+  var lastLen = column.len || len;
+  // const destination = self.rows + len
+  var destination = _gsap["default"].utils.random(self.rows * 0.1, self.rows + len, 1);
+  var lastDestination = column.destination || destination;
+  // Tracking the last Destination needs a tail off to roll out the old stream
+  var tailEnd = lastDestination + lastLen;
+
+  // If you have column.chars reuse else reset up to destination
+  var chars = column.chars || [];
+
+  // When you come in, cache the last set of chars
+  var cacheChars = _toConsumableArray(chars);
+  chars = new Array(Math.max(destination, chars.length)).fill().map(function (entry, index) {
+    if (index <= destination) {
+      return self.glyphs[_gsap["default"].utils.random(0, self.glyphs.length - 1, 1)];
+    } else {
+      return cacheChars[index];
+    }
+  });
+  var row = _gsap["default"].utils.random(-self.rows, -1, 1);
+
+  // column.hue = column.hue || gsap.utils.random(0, 359, 1)
+
+  return _objectSpread(_objectSpread({}, column), {}, {
+    chars: chars,
+    cacheChars: cacheChars,
+    destination: destination,
+    lastDestination: lastDestination,
+    lastLen: lastLen,
+    tailEnd: tailEnd,
+    tailCounter: lastDestination,
+    row: row,
+    len: len
+  });
+};
+DigitalRain.prototype.setTracker = function () {
+  var self = this;
+  self.tracker = new Array(self.columns).fill().map(function () {
+    return self.setColumn();
+  });
+};
+DigitalRain.prototype.reset = function () {
+  var self = this;
+  self.context.clearRect(0, 0, self.canvas.width, self.canvas.height);
+  self.setSize();
+  self.setTracker();
+};
+DigitalRain.prototype.init = function () {
+  var self = this;
+  self.renderMatrix = function () {
+    return self.render();
+  };
+  self.resetOnSize = function () {
+    return self.reset();
+  };
+  window.addEventListener('resize', self.resetOnSize);
+  _gsap["default"].ticker.add(self.renderMatrix);
+  _gsap["default"].ticker.fps(self.options.fps);
+  self.pause = function () {
+    _gsap["default"].ticker.remove(self.renderMatrix);
+  };
+  self.play = function () {
+    _gsap["default"].ticker.add(self.renderMatrix);
+  };
+};
+DigitalRain.prototype.getColor = function (x, y, _ref) {
+  var hue = _ref.hue,
+    row = _ref.row,
+    len = _ref.len,
+    lastLen = _ref.lastLen,
+    lastDestination = _ref.lastDestination,
+    tailCounter = _ref.tailCounter;
+  var self = this;
+  // If y > row but less than last destination, work out the color as if row === column.lastDestination
+  var lower = 0.1;
+  var upper = 1;
+  var alpha = 0.1;
+  if (y <= row) {
+    alpha = _gsap["default"].utils.clamp(lower, upper, _gsap["default"].utils.mapRange(-len, 0, lower, upper)(y - row));
+  } else if (y > row && y <= lastDestination) {
+    alpha = _gsap["default"].utils.clamp(lower, upper, _gsap["default"].utils.mapRange(-lastLen, 0, lower, upper)(y - tailCounter));
+  } else if (y > lastDestination) {
+    alpha = lower;
+  }
+  return "hsl(".concat(hue || self.options.hue, ", 100%, ").concat(row === y ? 100 : 70, "%, ").concat(alpha, ")");
+};
+DigitalRain.prototype.render = function () {
+  var self = this;
+  self.context.clearRect(0, 0, self.canvas.width, self.canvas.height);
+  // Need to try and iterate over every cell in the Matrix...
+  for (var c = 0; c < self.characters; c++) {
+    var x = c % self.columns;
+    var y = Math.floor(c / self.columns);
+    var column = self.tracker[x];
+
+    // On the first row, let's bump the index
+    if (y === 0 && Math.random() > 0.1) {
+      column.row += 1;
+    }
+    if (column.tailCounter !== column.tailOff && y === 0) {
+      column.tailCounter += 1;
+    }
+    var row = column.row;
+    var chars = column[y > row ? 'cacheChars' : 'chars'];
+    self.context.fillStyle = self.getColor(x, y, column);
+    if (chars[y]) {
+      if (Math.random() > 0.999 && y > row) {
+        column.cacheChars[y] = column.chars[y] = '';
+      }
+      if (Math.random() > 0.99 && y < row && y < column.destination && y > column.destination - column.len) {
+        column.cacheChars[y] = column.chars[y] = self.glyphs[_gsap["default"].utils.random(0, self.glyphs.length - 1, 1)];
+      }
+      self.context.fillText(chars[y], (x + 0.5) * self.fontSize, (y + 1) * self.fontSize);
+    }
+    // Reset the column if we go past destination
+    if (row > column.destination) {
+      self.tracker[x] = self.setColumn(column);
+    }
+  }
+};
+DigitalRain.prototype.setSize = function () {
+  var self = this;
+  var _self$canvas$getBound = self.canvas.getBoundingClientRect(),
+    height = _self$canvas$getBound.height,
+    width = _self$canvas$getBound.width;
+  self.canvas.height = height * self.__ratio;
+  self.canvas.width = width * self.__ratio;
+  // Set the font size and get the rows/columns
+  self.fontSize = Math.ceil(typeof self.size === 'function' ? self.size() : self.size);
+  self.columns = Math.ceil(self.canvas.width / self.fontSize);
+  // self.columns = 1
+  self.rows = Math.ceil(self.canvas.height / self.fontSize);
+  self.characters = self.rows * self.columns;
+  self.context.font = "".concat(self.fontSize, "px ").concat(self.options.family);
+  self.context.textAlign = 'center';
+};
+window.myDigitalRain = new DigitalRain(CANVAS, DEFAULT_OPTIONS);
+    </script>
 </body>
 
 </html>
