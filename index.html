@@ -134,6 +134,7 @@
 	inset: 0;
 }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -348,8 +349,6 @@
     <script>
         "use strict";
 
-var _gsap = _interopRequireDefault(require("https://cdn.skypack.dev/gsap@3.11.0"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -394,10 +393,10 @@ DigitalRain.prototype.setColumn = function () {
   var self = this;
   var glyphs = self.glyphs;
   // Set a destination and record len && lastLen
-  var len = _gsap["default"].utils.random(6, self.rows, 1);
+  var len = gsap.utils.random(6, self.rows, 1);
   var lastLen = column.len || len;
   // const destination = self.rows + len
-  var destination = _gsap["default"].utils.random(self.rows * 0.1, self.rows + len, 1);
+  var destination = gsap.utils.random(self.rows * 0.1, self.rows + len, 1);
   var lastDestination = column.destination || destination;
   // Tracking the last Destination needs a tail off to roll out the old stream
   var tailEnd = lastDestination + lastLen;
@@ -409,12 +408,12 @@ DigitalRain.prototype.setColumn = function () {
   var cacheChars = _toConsumableArray(chars);
   chars = new Array(Math.max(destination, chars.length)).fill().map(function (entry, index) {
     if (index <= destination) {
-      return self.glyphs[_gsap["default"].utils.random(0, self.glyphs.length - 1, 1)];
+      return self.glyphs[gsap.utils.random(0, self.glyphs.length - 1, 1)];
     } else {
       return cacheChars[index];
     }
   });
-  var row = _gsap["default"].utils.random(-self.rows, -1, 1);
+  var row = gsap.utils.random(-self.rows, -1, 1);
 
   // column.hue = column.hue || gsap.utils.random(0, 359, 1)
 
@@ -451,13 +450,13 @@ DigitalRain.prototype.init = function () {
     return self.reset();
   };
   window.addEventListener('resize', self.resetOnSize);
-  _gsap["default"].ticker.add(self.renderMatrix);
-  _gsap["default"].ticker.fps(self.options.fps);
+  gsap.ticker.add(self.renderMatrix);
+  gsap.ticker.fps(self.options.fps);
   self.pause = function () {
-    _gsap["default"].ticker.remove(self.renderMatrix);
+    gsap.ticker.remove(self.renderMatrix);
   };
   self.play = function () {
-    _gsap["default"].ticker.add(self.renderMatrix);
+    gsap.ticker.add(self.renderMatrix);
   };
 };
 DigitalRain.prototype.getColor = function (x, y, _ref) {
@@ -473,9 +472,9 @@ DigitalRain.prototype.getColor = function (x, y, _ref) {
   var upper = 1;
   var alpha = 0.1;
   if (y <= row) {
-    alpha = _gsap["default"].utils.clamp(lower, upper, _gsap["default"].utils.mapRange(-len, 0, lower, upper)(y - row));
+    alpha = gsap.utils.clamp(lower, upper, gsap.utils.mapRange(-len, 0, lower, upper)(y - row));
   } else if (y > row && y <= lastDestination) {
-    alpha = _gsap["default"].utils.clamp(lower, upper, _gsap["default"].utils.mapRange(-lastLen, 0, lower, upper)(y - tailCounter));
+    alpha = gsap.utils.clamp(lower, upper, gsap.utils.mapRange(-lastLen, 0, lower, upper)(y - tailCounter));
   } else if (y > lastDestination) {
     alpha = lower;
   }
@@ -505,7 +504,7 @@ DigitalRain.prototype.render = function () {
         column.cacheChars[y] = column.chars[y] = '';
       }
       if (Math.random() > 0.99 && y < row && y < column.destination && y > column.destination - column.len) {
-        column.cacheChars[y] = column.chars[y] = self.glyphs[_gsap["default"].utils.random(0, self.glyphs.length - 1, 1)];
+        column.cacheChars[y] = column.chars[y] = self.glyphs[gsap.utils.random(0, self.glyphs.length - 1, 1)];
       }
       self.context.fillText(chars[y], (x + 0.5) * self.fontSize, (y + 1) * self.fontSize);
     }
