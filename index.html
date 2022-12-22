@@ -53,7 +53,8 @@
             top: 0px;
             backdrop-filter: blur(40px);
         }
-        nav>a {
+
+        .nav-list a {
             padding: 1rem;
             color: white;
             text-decoration: none;
@@ -84,6 +85,7 @@
             white-space: nowrap;
             overflow: hidden;
         }
+
         ul {
             padding-top: 10px;
             padding-bottom: 10px;
@@ -187,11 +189,49 @@
         g[shape-rendering="crispEdges"] rect {
             fill: #102147;
         }
-        #colorPicker{
-            /* border: 0px; */
-            /* background-color: transparent; */
+
+        #colorPicker {
+            border: 0px;
+            background-color: transparent;
             /* border-radius: 100px; */
         }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+        }
+
+        .navbar-toggler {
+            padding: 0.25rem 0.75rem;
+            font-size: 1.25rem;
+            line-height: 1;
+            background-color: transparent;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            transition: box-shadow .15s ease-in-out;
+            align-self: baseline;
+            display: none;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .hide {
+            display: none !important;
+        }
+        .show{
+            display: flex !important;
+        }
+
         @media screen and (max-width: 768px) {
             section>ul {
                 padding-inline-start: 25px;
@@ -215,8 +255,25 @@
                 margin: 0;
             }
 
-            nav>a {
+            .nav-list a {
                 line-height: 30px;
+            }
+            .nav-list {
+                display: none;
+                align-items: center;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                flex-basis: 100%;
+            }
+            .navbar-toggler {
+                display: block;
+            }
+            .nav-list a{
+                padding: unset;
+            }
+            nav {
+                display: unset;
             }
         }
     </style>
@@ -225,14 +282,19 @@
 <body>
     <header>
         <nav>
-            <a href="#experience">Experience</a>
-            <a href="#projects"> Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#achievements">Activities and Awards</a>
-            <a href="#connect">Let's Connect</a>
-            <a href="mailto:maneeswar2000m@gmail.com">Hire Me</a>
-            <a><input type="color" id="colorPicker" oninput="setColor(event.target.value)" value="#00ccff" /></a>
-            <a><input type="reset" onclick="init(true)"></a>
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation" onclick="handle()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav-list">
+                <a href="#experience">Experience</a>
+                <a href="#projects"> Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#achievements">Activities and Awards</a>
+                <a href="#connect">Let's Connect</a>
+                <a href="mailto:maneeswar2000m@gmail.com">Hire Me</a>
+                <a><input type="color" id="colorPicker" oninput="setColor(event.target.value)" value="#00ccff" /></a>
+                <a><input type="reset" onclick="init(true)"></a>
+            </div>
         </nav>
     </header>
     <marquee>
@@ -532,23 +594,27 @@
         </section>
     </main>
     <script>
-        function setColor(value){
-            if(value){
+        function setColor(value) {
+            if (value) {
                 var r = document.querySelector(':root');
-                r.style.setProperty('--primary-color', value);  
-                localStorage.setItem('color', value); 
+                r.style.setProperty('--primary-color', value);
+                localStorage.setItem('color', value);
             }
         }
-        function init(reset){
-            if(reset){
-                localStorage.removeItem('color'); 
+        function handle() {
+            var navList = document.querySelector('.nav-list');
+            navList.classList.toggle('show');
+        }
+        function init(reset) {
+            if (reset) {
+                localStorage.removeItem('color');
                 setColor('#00ccff')
             }
             var color = localStorage.getItem('color');
-            if(color){
+            if (color) {
                 setColor(color);
                 document.getElementById('colorPicker').value = color;
-            } 
+            }
         }
         init();
     </script>
