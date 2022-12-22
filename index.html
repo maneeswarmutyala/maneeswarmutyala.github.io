@@ -7,26 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maneeswar Mutyala Profile</title>
     <style type="text/css">
+        :root {
+            --primary-color: #00ccff;
+            --secondary-color: #fff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+
+        }
+
         body {
-            background-color: #070417;
+            background-color: #0f172a;
             font-family: lato, "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
             margin: 0 auto;
             max-width: 1200px;
             width: 100%;
             z-index: 999;
-            color: #2eeadc;
+            color: var(--primary-color);
+
         }
 
         h1 {
-            color: #2eeadc;
+            color: var(--primary-color);
             font-size: 1em;
             line-height: 1.5em;
         }
 
         header {
-            border: 1px solid #2eeadc;
-            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--primary-color);
+            background-color: transparent;
             padding: 1rem;
+            position: sticky; top: 0px;
+            backdrop-filter: blur(40px);
+
         }
 
         nav>a {
@@ -36,10 +50,11 @@
         }
 
         section {
-            border: 1px solid #2eeadc;
+            border: 1px solid var(--primary-color);
             background-color: transparent;
             padding: 0.75rem;
             margin: 2rem 0rem;
+            border-radius: 10px 0px 20px 10px;
         }
 
         h2 {
@@ -47,7 +62,7 @@
         }
 
         marquee {
-            border: 1px solid #2eeadc;
+            border: 1px solid var(--primary-color);
             letter-spacing: .26em;
             text-transform: uppercase;
             position: relative;
@@ -75,10 +90,10 @@
         ul {
             padding-top: 10px;
             padding-bottom: 10px;
-            animation: maneesh 1.5s steps(40, end);
+            animation: typing 1.5s steps(40, end);
         }
 
-        @keyframes maneesh {
+        @keyframes typing {
             from {
                 width: 0
             }
@@ -97,17 +112,8 @@
             line-height: 25px;
         }
 
-        li{
+        li {
             line-height: 1.7em;
-        }        
-        @media screen and (max-width: 768px) {
-            ul {
-                padding-inline-start: 10px;
-            }
-
-            ol {
-                padding-inline-start: 25px;
-            }
         }
 
         .skills {
@@ -129,6 +135,89 @@
         #connect li {
             list-style: none;
         }
+
+        li a {
+            color: var(--primary-color);
+        }
+
+        progress {
+            border-radius: 30px;
+        }
+
+        progress[value] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14rem;
+            height: 4px;
+            border-radius: 20px;
+        }
+
+        progress[value]::-webkit-progress-value {
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skills-container p {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            margin: 10px 10px;
+            box-shadow: 0px 0px 6px 0px #eeeeee2b;
+        }
+
+        .skills-container p progress {
+            margin-top: 10px;
+        }
+
+        .social-handles {
+            display: flex;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-handles a {
+            margin-right: 20px;
+        }
+
+        g[shape-rendering="crispEdges"] rect {
+            fill: #102147;
+        }
+
+        @media screen and (max-width: 768px) {
+            section>ul {
+                padding-inline-start: 25px;
+            }
+
+            ul {
+                padding-inline-start: 10px;
+            }
+
+            ol {
+                padding-inline-start: 25px;
+            }
+
+            .skills-container {
+                justify-content: center;
+                align-items: center;
+            }
+
+            .social-handles {
+                /* justify-content: space-around; */
+                /* align-items: center; */
+                flex-direction: row;
+            }
+
+            nav>a {
+                line-height: 30px;
+            }
+        }
     </style>
 </head>
 
@@ -140,7 +229,7 @@
             <a href="#skills">Skills</a>
             <a href="#achievements">Activities and Awards</a>
             <a href="#connect">Let's Connect</a>
-            <a href="#hireme">Hire Me</a>
+            <a href="mailto:maneeswar2000m@gmail.com">Hire Me</a>
         </nav>
     </header>
     <marquee>
@@ -158,7 +247,7 @@
                         </li>
                         <li>
                             Designed and developed an end-to-end product called <strong><a
-                                    href="https://sensesemi.in/elearn/">E-learning 💻</a></strong> with
+                                    href="https://sensesemi.in/elearn/">E-learning</a></strong> 💻 with
                             features named courses, curriculum, payments, offers, and tools for the same.
                         </li>
                         <li>
@@ -198,7 +287,8 @@
                         <li>Integrated multiple events (GA, MoEngage, etc.) in multiple projects.</li>
                         <li> Implemented unit testing for some projects using JEST.
                         </li>
-                        <li>Developed the landing page for slot booking and <strong>Vedantu Improvement Promise</strong> programme information.
+                        <li>Developed the landing page for slot booking and <strong>Vedantu Improvement Promise</strong>
+                            programme information.
                         </li>
                         <li> Added a feature called <strong>Master Teacher's Details Upload</strong> for Vedantu Pro
                             Page.
@@ -307,43 +397,27 @@
                 </li>
             </ol>
         </section>
-        <section id="" skills>
+        <section id="skills">
             <h2>Skills</h2>
-            <ol>Front End
-                <li class="skills">
-                    <p>HTML <span class="bar">8/10</span> </p>
-                    <p>CSS</p>
-                    <p>JavaScript</p>
-                    <p>React Js</p>
-                    <p>Next Js</p>
-                    <p>Redux/Flux</p>
-                    <p>SCSS</p>
-                    <p>Bootstrap</p>
-                    <p>Semantic UI</p>
-                    <p>Tailwind css</p>
-                    <p>Ant Design</p>
-                </li>
-            </ol>
-
-            <ol>Backend
-                <li class="skills">
-                    <p>PHP</p>
-                </li>
-
-            </ol>
-            <ol>Databases
-                <li class="skills">
-                    <p>MYSQL, MongoDB</p>
-                </li>
-            </ol>
-            <ol>Misc
-                <li class="skills">
-                    <p>Webpack</p>
-                    <p>GIT</p>
-                    <p>NPM</p>
-                    <p>React Native</p>
-                </li>
-            </ol>
+            <div class="skills-container">
+                <p>HTML <progress id="html" value="80" max="100"></progress> </p>
+                <p>CSS <progress id="html" value="100" max="100"></progress> </p>
+                <p>JavaScript <progress id="html" value="100" max="100"></progress></p>
+                <p>React Js <progress id="html" value="100" max="100"></progress></p>
+                <p>Next Js <progress id="html" value="100" max="100"></progress></p>
+                <p>Redux/Flux <progress id="html" value="100" max="100"></progress></p>
+                <p>SCSS <progress id="html" value="100" max="100"></progress></p>
+                <p>Bootstrap <progress id="html" value="100" max="100"></progress></p>
+                <p>Semantic UI <progress id="html" value="100" max="100"></progress></p>
+                <p>Tailwind css <progress id="html" value="100" max="100"></progress></p>
+                <p>Ant Design <progress id="html" value="100" max="100"></progress></p>
+                <p>Webpack <progress id="html" value="100" max="100"></progress></p>
+                <p>GIT <progress id="html" value="100" max="100"></progress></p>
+                <p>NPM <progress id="html" value="100" max="100"></progress></p>
+                <p>React Native <progress id="html" value="100" max="100"></progress></p>
+                <p>MYSQL <progress id="html" value="100" max="100"></progress></p>
+                <p>MongoDB <progress id="html" value="100" max="100"></progress></p>
+            </div>
         </section>
         <section id="achievements">
             <h2>Activities and Awards</h2>
@@ -365,17 +439,84 @@
         </section>
         <section id="connect">
             <h2>Let's Connect</h2>
-            <ol>
-                <li> <a href="https://github.com/maneeswarmutyala" target="_blank">Github</a> </li>
-                <li> <a href="https://www.linkedin.com/in/maneeswar-mutyala/" target="_blank">LinkedIn</a> </li>
-                <li> <a href="https://www.instagram.com/maneeswar.mutyala/" target="_blank">Instagram</a></li>
-                <li>
-                    <a href="https://twitter.com/maneeswar_m" target="_blank">Twitter</a>
-                </li>
-            </ol>
-        </section>
-        <section id="hireme">
-            <h2>Hire Me</h2>
+            <div class="social-handles">
+                <a href="https://www.linkedin.com/in/maneeswar-mutyala/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
+                        height="28" role="img">
+                        <g shape-rendering="crispEdges">
+                            <rect width="114.25" height="28" fill="#102147" />
+
+                        </g>
+                        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+                            text-rendering="geometricPrecision" font-size="100">
+                            <image x="9" y="7" width="14" height="14"
+                                xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TGlua2VkSW48L3RpdGxlPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg==" />
+                            <text transform="scale(.1)" x="656.25" y="175" textLength="700" fill="#fff">FOLLOW</text>
+                        </g>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/maneeswar.mutyala/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
+                        height="28" role="img" aria-label="FOLLOWERS: 3">
+                        <g shape-rendering="crispEdges">
+                            <rect width="114.25" height="28" fill="#102147" />
+
+                        </g>
+                        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+                            text-rendering="geometricPrecision" font-size="100">
+                            <image x="9" y="7" width="14" height="14"
+                                xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRTQ0MDVGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+SW5zdGFncmFtPC90aXRsZT48cGF0aCBkPSJNMTIgMEM4Ljc0IDAgOC4zMzMuMDE1IDcuMDUzLjA3MiA1Ljc3NS4xMzIgNC45MDUuMzMzIDQuMTQuNjNjLS43ODkuMzA2LTEuNDU5LjcxNy0yLjEyNiAxLjM4NFMuOTM1IDMuMzUuNjMgNC4xNEMuMzMzIDQuOTA1LjEzMSA1Ljc3NS4wNzIgNy4wNTMuMDEyIDguMzMzIDAgOC43NCAwIDEycy4wMTUgMy42NjcuMDcyIDQuOTQ3Yy4wNiAxLjI3Ny4yNjEgMi4xNDguNTU4IDIuOTEzLjMwNi43ODguNzE3IDEuNDU5IDEuMzg0IDIuMTI2LjY2Ny42NjYgMS4zMzYgMS4wNzkgMi4xMjYgMS4zODQuNzY2LjI5NiAxLjYzNi40OTkgMi45MTMuNTU4QzguMzMzIDIzLjk4OCA4Ljc0IDI0IDEyIDI0czMuNjY3LS4wMTUgNC45NDctLjA3MmMxLjI3Ny0uMDYgMi4xNDgtLjI2MiAyLjkxMy0uNTU4Ljc4OC0uMzA2IDEuNDU5LS43MTggMi4xMjYtMS4zODQuNjY2LS42NjcgMS4wNzktMS4zMzUgMS4zODQtMi4xMjYuMjk2LS43NjUuNDk5LTEuNjM2LjU1OC0yLjkxMy4wNi0xLjI4LjA3Mi0xLjY4Ny4wNzItNC45NDdzLS4wMTUtMy42NjctLjA3Mi00Ljk0N2MtLjA2LTEuMjc3LS4yNjItMi4xNDktLjU1OC0yLjkxMy0uMzA2LS43ODktLjcxOC0xLjQ1OS0xLjM4NC0yLjEyNkMyMS4zMTkgMS4zNDcgMjAuNjUxLjkzNSAxOS44Ni42M2MtLjc2NS0uMjk3LTEuNjM2LS40OTktMi45MTMtLjU1OEMxNS42NjcuMDEyIDE1LjI2IDAgMTIgMHptMCAyLjE2YzMuMjAzIDAgMy41ODUuMDE2IDQuODUuMDcxIDEuMTcuMDU1IDEuODA1LjI0OSAyLjIyNy40MTUuNTYyLjIxNy45Ni40NzcgMS4zODIuODk2LjQxOS40Mi42NzkuODE5Ljg5NiAxLjM4MS4xNjQuNDIyLjM2IDEuMDU3LjQxMyAyLjIyNy4wNTcgMS4yNjYuMDcgMS42NDYuMDcgNC44NXMtLjAxNSAzLjU4NS0uMDc0IDQuODVjLS4wNjEgMS4xNy0uMjU2IDEuODA1LS40MjEgMi4yMjctLjIyNC41NjItLjQ3OS45Ni0uODk5IDEuMzgyLS40MTkuNDE5LS44MjQuNjc5LTEuMzguODk2LS40Mi4xNjQtMS4wNjUuMzYtMi4yMzUuNDEzLTEuMjc0LjA1Ny0xLjY0OS4wNy00Ljg1OS4wNy0zLjIxMSAwLTMuNTg2LS4wMTUtNC44NTktLjA3NC0xLjE3MS0uMDYxLTEuODE2LS4yNTYtMi4yMzYtLjQyMS0uNTY5LS4yMjQtLjk2LS40NzktMS4zNzktLjg5OS0uNDIxLS40MTktLjY5LS44MjQtLjktMS4zOC0uMTY1LS40Mi0uMzU5LTEuMDY1LS40Mi0yLjIzNS0uMDQ1LTEuMjYtLjA2MS0xLjY0OS0uMDYxLTQuODQ0IDAtMy4xOTYuMDE2LTMuNTg2LjA2MS00Ljg2MS4wNjEtMS4xNy4yNTUtMS44MTQuNDItMi4yMzQuMjEtLjU3LjQ3OS0uOTYuOS0xLjM4MS40MTktLjQxOS44MS0uNjg5IDEuMzc5LS44OTguNDItLjE2NiAxLjA1MS0uMzYxIDIuMjIxLS40MjEgMS4yNzUtLjA0NSAxLjY1LS4wNiA0Ljg1OS0uMDZsLjA0NS4wM3ptMCAzLjY3OGMtMy40MDUgMC02LjE2MiAyLjc2LTYuMTYyIDYuMTYyIDAgMy40MDUgMi43NiA2LjE2MiA2LjE2MiA2LjE2MiAzLjQwNSAwIDYuMTYyLTIuNzYgNi4xNjItNi4xNjIgMC0zLjQwNS0yLjc2LTYuMTYyLTYuMTYyLTYuMTYyek0xMiAxNmMtMi4yMSAwLTQtMS43OS00LTRzMS43OS00IDQtNCA0IDEuNzkgNCA0LTEuNzkgNC00IDR6bTcuODQ2LTEwLjQwNWMwIC43OTUtLjY0NiAxLjQ0LTEuNDQgMS40NC0uNzk1IDAtMS40NC0uNjQ2LTEuNDQtMS40NCAwLS43OTQuNjQ2LTEuNDM5IDEuNDQtMS40MzkuNzkzLS4wMDEgMS40NC42NDUgMS40NCAxLjQzOXoiLz48L3N2Zz4=" />
+                            <text transform="scale(.1)" x="656.25" y="175" textLength="700" fill="#fff">FOLLOW</text>
+                        </g>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/maneeswar_m" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
+                        height="28" role="img" aria-label="FOLLOWERS: 3">
+                        <g shape-rendering="crispEdges">
+                            <rect width="114.25" height="28" fill="#102147" />
+
+                        </g>
+                        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+                            text-rendering="geometricPrecision" font-size="100">
+                            <image x="9" y="7" width="14" height="14"
+                                xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMURBMUYyIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+VHdpdHRlcjwvdGl0bGU+PHBhdGggZD0iTTIzLjk1MyA0LjU3YTEwIDEwIDAgMDEtMi44MjUuNzc1IDQuOTU4IDQuOTU4IDAgMDAyLjE2My0yLjcyM2MtLjk1MS41NTUtMi4wMDUuOTU5LTMuMTI3IDEuMTg0YTQuOTIgNC45MiAwIDAwLTguMzg0IDQuNDgyQzcuNjkgOC4wOTUgNC4wNjcgNi4xMyAxLjY0IDMuMTYyYTQuODIyIDQuODIyIDAgMDAtLjY2NiAyLjQ3NWMwIDEuNzEuODcgMy4yMTMgMi4xODggNC4wOTZhNC45MDQgNC45MDQgMCAwMS0yLjIyOC0uNjE2di4wNmE0LjkyMyA0LjkyMyAwIDAwMy45NDYgNC44MjcgNC45OTYgNC45OTYgMCAwMS0yLjIxMi4wODUgNC45MzYgNC45MzYgMCAwMDQuNjA0IDMuNDE3IDkuODY3IDkuODY3IDAgMDEtNi4xMDIgMi4xMDVjLS4zOSAwLS43NzktLjAyMy0xLjE3LS4wNjdhMTMuOTk1IDEzLjk5NSAwIDAwNy41NTcgMi4yMDljOS4wNTMgMCAxMy45OTgtNy40OTYgMTMuOTk4LTEzLjk4NSAwLS4yMSAwLS40Mi0uMDE1LS42M0E5LjkzNSA5LjkzNSAwIDAwMjQgNC41OXoiLz48L3N2Zz4=" />
+                            <text transform="scale(.1)" x="656.25" y="175" textLength="700" fill="#fff">FOLLOW</text>
+                        </g>
+                    </svg>
+                </a>
+                <a href="https://www.github.com/maneeswarmutyala" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
+                        height="28" role="img" aria-label="FOLLOWERS: 3">
+                        <g shape-rendering="crispEdges">
+                            <rect width="114.25" height="28" fill="#102147" />
+
+                        </g>
+                        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+                            text-rendering="geometricPrecision" font-size="100">
+                            <image xmlns="http://www.w3.org/2000/svg" x="9" y="7" width="14" height="14"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+" />
+                            <text transform="scale(.1)" x="656.25" y="175" textLength="700" fill="#fff">FOLLOW</text>
+                        </g>
+                    </svg>
+                </a>
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
+                        height="28" role="img" aria-label="FOLLOWERS: 3">
+
+                        <g shape-rendering="crispEdges">
+                            <rect width="114.25" height="28" fill="#102147" />
+                        </g>
+                        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+                            text-rendering="geometricPrecision" font-size="100">
+                            <image x="9" y="7" width="14" height="14"
+                                xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjVEMzY2IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+V2hhdHNBcHA8L3RpdGxlPjxwYXRoIGQ9Ik0xNy40NzIgMTQuMzgyYy0uMjk3LS4xNDktMS43NTgtLjg2Ny0yLjAzLS45NjctLjI3My0uMDk5LS40NzEtLjE0OC0uNjcuMTUtLjE5Ny4yOTctLjc2Ny45NjYtLjk0IDEuMTY0LS4xNzMuMTk5LS4zNDcuMjIzLS42NDQuMDc1LS4yOTctLjE1LTEuMjU1LS40NjMtMi4zOS0xLjQ3NS0uODgzLS43ODgtMS40OC0xLjc2MS0xLjY1My0yLjA1OS0uMTczLS4yOTctLjAxOC0uNDU4LjEzLS42MDYuMTM0LS4xMzMuMjk4LS4zNDcuNDQ2LS41Mi4xNDktLjE3NC4xOTgtLjI5OC4yOTgtLjQ5Ny4wOTktLjE5OC4wNS0uMzcxLS4wMjUtLjUyLS4wNzUtLjE0OS0uNjY5LTEuNjEyLS45MTYtMi4yMDctLjI0Mi0uNTc5LS40ODctLjUtLjY2OS0uNTEtLjE3My0uMDA4LS4zNzEtLjAxLS41Ny0uMDEtLjE5OCAwLS41Mi4wNzQtLjc5Mi4zNzItLjI3Mi4yOTctMS4wNCAxLjAxNi0xLjA0IDIuNDc5IDAgMS40NjIgMS4wNjUgMi44NzUgMS4yMTMgMy4wNzQuMTQ5LjE5OCAyLjA5NiAzLjIgNS4wNzcgNC40ODcuNzA5LjMwNiAxLjI2Mi40ODkgMS42OTQuNjI1LjcxMi4yMjcgMS4zNi4xOTUgMS44NzEuMTE4LjU3MS0uMDg1IDEuNzU4LS43MTkgMi4wMDYtMS40MTMuMjQ4LS42OTQuMjQ4LTEuMjg5LjE3My0xLjQxMy0uMDc0LS4xMjQtLjI3Mi0uMTk4LS41Ny0uMzQ3bS01LjQyMSA3LjQwM2gtLjAwNGE5Ljg3IDkuODcgMCAwMS01LjAzMS0xLjM3OGwtLjM2MS0uMjE0LTMuNzQxLjk4Mi45OTgtMy42NDgtLjIzNS0uMzc0YTkuODYgOS44NiAwIDAxLTEuNTEtNS4yNmMuMDAxLTUuNDUgNC40MzYtOS44ODQgOS44ODgtOS44ODQgMi42NCAwIDUuMTIyIDEuMDMgNi45ODggMi44OThhOS44MjUgOS44MjUgMCAwMTIuODkzIDYuOTk0Yy0uMDAzIDUuNDUtNC40MzcgOS44ODQtOS44ODUgOS44ODRtOC40MTMtMTguMjk3QTExLjgxNSAxMS44MTUgMCAwMDEyLjA1IDBDNS40OTUgMCAuMTYgNS4zMzUuMTU3IDExLjg5MmMwIDIuMDk2LjU0NyA0LjE0MiAxLjU4OCA1Ljk0NUwuMDU3IDI0bDYuMzA1LTEuNjU0YTExLjg4MiAxMS44ODIgMCAwMDUuNjgzIDEuNDQ4aC4wMDVjNi41NTQgMCAxMS44OS01LjMzNSAxMS44OTMtMTEuODkzYTExLjgyMSAxMS44MjEgMCAwMC0zLjQ4LTguNDEzWiIvPjwvc3ZnPg==" />
+                            <text transform="scale(.1)" x="656.25" y="175" textLength="720" fill="#fff">CONNECT</text>
+                        </g>
+                    </svg>
+                </a>
+            </div>
         </section>
     </main>
 </body>
