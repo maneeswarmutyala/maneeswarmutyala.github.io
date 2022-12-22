@@ -4,7 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Maneeswar Mutyala">
+    <meta name="keywords" content="frontend developer,reactjs developer, maneeswar mutyala">
+    <meta name="description" content="Know more about Maneeswar Mutyala's skills, achievements, etc.">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/44763136">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maneeswarmutyala.github.io/">
+    <meta property="og:title" content="Maneeswar Mutyala">
+    <meta property="og:site_name" content="Web Developer">
+    <meta property="og:description" content="Know more about Maneeswar Mutyala's skills, achievements, etc.">
+    <link rel="canonical" href="https://maneeswarmutyala.github.io/">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/44763136">
     <title>Maneeswar Mutyala Profile</title>
     <style type="text/css">
         :root {
@@ -37,10 +49,10 @@
         header {
             border: 1px solid var(--primary-color);
             padding: 1rem;
-            position: sticky; top: 0px;
+            position: sticky;
+            top: 0px;
             backdrop-filter: blur(40px);
         }
-
         nav>a {
             padding: 1rem;
             color: white;
@@ -71,20 +83,7 @@
             margin: 0 auto;
             white-space: nowrap;
             overflow: hidden;
-            animation: typing 3.5s steps(40, end);
-
         }
-
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%;
-            }
-        }
-
         ul {
             padding-top: 10px;
             padding-bottom: 10px;
@@ -155,6 +154,7 @@
             border-radius: 2px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
         }
+
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -171,7 +171,7 @@
         }
 
         .skills-container p progress {
-            margin-top: 10px;
+            margin: 10px 0px;
         }
 
         .social-handles {
@@ -187,7 +187,11 @@
         g[shape-rendering="crispEdges"] rect {
             fill: #102147;
         }
-
+        #colorPicker{
+            /* border: 0px; */
+            /* background-color: transparent; */
+            /* border-radius: 100px; */
+        }
         @media screen and (max-width: 768px) {
             section>ul {
                 padding-inline-start: 25px;
@@ -195,6 +199,7 @@
 
             ul {
                 padding-inline-start: 10px;
+                animation: unset;
             }
 
             ol {
@@ -206,10 +211,8 @@
                 align-items: center;
             }
 
-            .social-handles {
-                /* justify-content: space-around; */
-                /* align-items: center; */
-                flex-direction: row;
+            .social-handles a {
+                margin: 0;
             }
 
             nav>a {
@@ -228,6 +231,8 @@
             <a href="#achievements">Activities and Awards</a>
             <a href="#connect">Let's Connect</a>
             <a href="mailto:maneeswar2000m@gmail.com">Hire Me</a>
+            <a><input type="color" id="colorPicker" oninput="setColor(event.target.value)" value="#00ccff" /></a>
+            <a><input type="reset" onclick="init(true)"></a>
         </nav>
     </header>
     <marquee>
@@ -245,11 +250,13 @@
                         </li>
                         <li>
                             Designed and developed an end-to-end product called <strong><a
-                                    href="https://sensesemi.in/elearn/?ref=maneeswar.mutyala_profile">E-learning</a></strong> 💻 with
+                                    href="https://sensesemi.in/elearn/?ref=maneeswar.mutyala_profile">E-learning</a></strong>
+                            💻 with
                             features named courses, curriculum, payments, offers, and tools for the same.
                         </li>
                         <li>
-                            Developed the <a href="https://sensesemi.in/?ref=maneeswar.mutyala_profile">landing page</a> for the company. CRUD tool
+                            Developed the <a href="https://sensesemi.in/?ref=maneeswar.mutyala_profile">landing page</a>
+                            for the company. CRUD tool
                             for managing the services on the
                             landing page, and a static site generator tool for publishing the static service page.
                         </li>
@@ -264,19 +271,26 @@
                 <li>
                     Software Engineer - Front End (Vedantu)
                     <ul>
-                        <li>Developed the <strong><a href="https://www.vedantu.com/question-answer/write-an-essay-on-conservation-of-water-5b7c06cde4b08b06b4c22156?ref=maneeswar.mutyala_profile">Free Trial for Students</a></strong> product. Free customers got converted
+                        <li>Developed the <strong><a
+                                    href="https://www.vedantu.com/question-answer/write-an-essay-on-conservation-of-water-5b7c06cde4b08b06b4c22156?ref=maneeswar.mutyala_profile">Free
+                                    Trial for Students</a></strong> product. Free customers got converted
                             into paying customers, which grew revenue for the company.
 
                         </li>
-                        <li> Developed the <strong><a href="https://www.vedantu.com/?ref=maneeswar.mutyala_profile">Homepage</a>  </strong>of Vedantu with different variants for different
+                        <li> Developed the <strong><a
+                                    href="https://www.vedantu.com/?ref=maneeswar.mutyala_profile">Homepage</a>
+                            </strong>of Vedantu with different variants for different
                             users (A/B testing). Page traffic and CTR improved.
                         </li>
-                        <li> Developed the <strong><a href="https://vsat.vedantu.com/?ref=maneeswar.mutyala_profile">Landing Page for VSAT event</a></strong>. Page traffic and CTR improved.
+                        <li> Developed the <strong><a
+                                    href="https://vsat.vedantu.com/?ref=maneeswar.mutyala_profile">Landing Page for VSAT
+                                    event</a></strong>. Page traffic and CTR improved.
                         </li>
                         <li>Contributed to codebase separation for micro-frontends.
                         </li>
                         <li>
-                            Developed <strong><a href="https://www.vedantu.com/lead?ref=maneeswar.mutyala_profile">Free Demo Slots Booking</a></strong> for lead generation through marketing.
+                            Developed <strong><a href="https://www.vedantu.com/lead?ref=maneeswar.mutyala_profile">Free
+                                    Demo Slots Booking</a></strong> for lead generation through marketing.
                         </li>
                     </ul>
                 </li>
@@ -399,22 +413,22 @@
             <h2>Skills</h2>
             <div class="skills-container">
                 <p>HTML <progress id="html" value="80" max="100"></progress> </p>
-                <p>CSS <progress id="html" value="100" max="100"></progress> </p>
-                <p>JavaScript <progress id="html" value="100" max="100"></progress></p>
-                <p>React Js <progress id="html" value="100" max="100"></progress></p>
-                <p>Next Js <progress id="html" value="100" max="100"></progress></p>
-                <p>Redux/Flux <progress id="html" value="100" max="100"></progress></p>
-                <p>SCSS <progress id="html" value="100" max="100"></progress></p>
-                <p>Bootstrap <progress id="html" value="100" max="100"></progress></p>
-                <p>Semantic UI <progress id="html" value="100" max="100"></progress></p>
-                <p>Tailwind css <progress id="html" value="100" max="100"></progress></p>
-                <p>Ant Design <progress id="html" value="100" max="100"></progress></p>
-                <p>Webpack <progress id="html" value="100" max="100"></progress></p>
-                <p>GIT <progress id="html" value="100" max="100"></progress></p>
-                <p>NPM <progress id="html" value="100" max="100"></progress></p>
-                <p>React Native <progress id="html" value="100" max="100"></progress></p>
-                <p>MYSQL <progress id="html" value="100" max="100"></progress></p>
-                <p>MongoDB <progress id="html" value="100" max="100"></progress></p>
+                <p>CSS <progress id="css" value="80" max="100"></progress> </p>
+                <p>JavaScript <progress id="js" value="85" max="100"></progress></p>
+                <p>React Js <progress id="reactjs" value="80" max="100"></progress></p>
+                <p>Next Js <progress id="nextjs" value="70" max="100"></progress></p>
+                <p>Redux/Flux <progress id="redux" value="70" max="100"></progress></p>
+                <p>SCSS <progress id="scss" value="70" max="100"></progress></p>
+                <p>Bootstrap <progress id="bootstrap" value="80" max="100"></progress></p>
+                <p>Semantic UI <progress id="semantic" value="80" max="100"></progress></p>
+                <p>Tailwind css <progress id="tailwind" value="50" max="100"></progress></p>
+                <p>Ant Design <progress id="antdesign" value="50" max="100"></progress></p>
+                <p>Webpack <progress id="Webpack" value="80" max="100"></progress></p>
+                <p>GIT <progress id="git" value="80" max="100"></progress></p>
+                <p>NPM <progress id="npm" value="80" max="100"></progress></p>
+                <p>React Native <progress id="rn" value="60" max="100"></progress></p>
+                <p>MYSQL <progress id="mysql" value="60" max="100"></progress></p>
+                <p>MongoDB <progress id="mongodb" value="40" max="100"></progress></p>
             </div>
         </section>
         <section id="achievements">
@@ -440,7 +454,7 @@
             <div class="social-handles">
                 <a href="https://www.linkedin.com/in/maneeswar-mutyala/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
-                        height="28" role="img">
+                        height="28" role="img" aria-label="Follow in Linkedin">
                         <g shape-rendering="crispEdges">
                             <rect width="114.25" height="28" fill="#102147" />
 
@@ -455,7 +469,7 @@
                 </a>
                 <a href="https://www.instagram.com/maneeswar.mutyala/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
-                        height="28" role="img" aria-label="FOLLOWERS: 3">
+                        height="28" role="img" aria-label="Follow in Instagram">
                         <g shape-rendering="crispEdges">
                             <rect width="114.25" height="28" fill="#102147" />
 
@@ -470,7 +484,7 @@
                 </a>
                 <a href="https://twitter.com/maneeswar_m" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
-                        height="28" role="img" aria-label="FOLLOWERS: 3">
+                        height="28" role="img" aria-label="Follow in Twitter">
                         <g shape-rendering="crispEdges">
                             <rect width="114.25" height="28" fill="#102147" />
 
@@ -485,7 +499,7 @@
                 </a>
                 <a href="https://www.github.com/maneeswarmutyala" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
-                        height="28" role="img" aria-label="FOLLOWERS: 3">
+                        height="28" role="img" aria-label="Follow in Github">
                         <g shape-rendering="crispEdges">
                             <rect width="114.25" height="28" fill="#102147" />
 
@@ -499,9 +513,9 @@
                         </g>
                     </svg>
                 </a>
-                <a href="">
+                <a href="https://wa.me/+918790042337" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146.5"
-                        height="28" role="img" aria-label="FOLLOWERS: 3">
+                        height="28" role="img" aria-label="Connect in Whatsapp">
 
                         <g shape-rendering="crispEdges">
                             <rect width="114.25" height="28" fill="#102147" />
@@ -517,6 +531,27 @@
             </div>
         </section>
     </main>
+    <script>
+        function setColor(value){
+            if(value){
+                var r = document.querySelector(':root');
+                r.style.setProperty('--primary-color', value);  
+                localStorage.setItem('color', value); 
+            }
+        }
+        function init(reset){
+            if(reset){
+                localStorage.removeItem('color'); 
+                setColor('#00ccff')
+            }
+            var color = localStorage.getItem('color');
+            if(color){
+                setColor(color);
+                document.getElementById('colorPicker').value = color;
+            } 
+        }
+        init();
+    </script>
 </body>
 
 </html>
