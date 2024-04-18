@@ -20,8 +20,10 @@
     <title>Maneeswar Mutyala Profile</title>
     <style type="text/css">
         :root {
-            --primary-color: #00ccff;
+            /* #00ccff */
+            --primary-color: #aee614;
             --secondary-color: #fff;
+            
         }
 
         html {
@@ -136,6 +138,9 @@
         }
 
         li a {
+            color: var(--primary-color);
+        }
+        li strong {
             color: var(--primary-color);
         }
 
@@ -297,7 +302,7 @@
                 <a href="#achievements">Activities and Awards</a>
                 <a href="#connect">Let's Connect</a>
                 <a href="mailto:maneeswar2000m@gmail.com">Hire Me</a>
-                <a><input type="color" id="colorPicker" oninput="setColor(event.target.value)" value="#00ccff" /></a>
+                <a><input type="color" id="colorPicker" oninput="setColor(event.target.value)" value="#aee614" /></a>
                 <a><input type="reset" onclick="init(true)"></a>
             </div>
         </nav>
@@ -314,16 +319,16 @@
                     <ul>
                         <li>
                             Created an <a href="https://www.biryanihousemahabubabad.com/">Online Delivery System</a>
-                            using Next.js, Tailwind CSS, and MongoDB. Integrated WhatsApp e-commerce via WhatsApp
+                            using <strong>Next.js, Tailwind CSS, and MongoDB.</strong> Integrated WhatsApp e-commerce via WhatsApp
                             Business for seamless transactions. Streamlined client operations and enhanced user
                             experience.
                         </li>
                         <li>
-                            Created a VR app for the XR Startup Challenge using Viro React, delivering immersive
+                            Created a VR app for the XR Startup Challenge using <strong> Viro React </strong>, delivering immersive
                             experiences.
                         </li>
                         <li>
-                            Designed and developed a prototype for the client utilizing Electron JS. This versatile
+                            Designed and developed a prototype for the client utilizing <strong>Electron JS</strong>. This versatile
                             platform allowed for seamless integration across various operating systems, providing a
                             solid foundation for further development and customization.
                         </li>
@@ -342,10 +347,9 @@
                             effectively communicates the essence of our company, highlighting our products, services,
                             and brand identity. Employed strategic design elements and persuasive copywriting to
                             captivate and convert visitors into customers.
-
                         </li>
                         <li>
-                            Added new features to the React Native app (Smart Irrigation System, The Arka).
+                            Added new features to the <strong> React Native</strong> app (Smart Irrigation System, The Arka).
                         </li>
                         <!-- <li>
                             Configured the AWS EC2 with Lamp Stack for serving landing page and e-learn product.
@@ -645,7 +649,7 @@
         function init(reset) {
             if (reset) {
                 localStorage.removeItem('color');
-                setColor('#00ccff')
+                setColor('#aee614')
             }
             var color = localStorage.getItem('color');
             if (color) {
